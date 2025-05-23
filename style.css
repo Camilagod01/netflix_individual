@@ -1,4 +1,4 @@
-/* Reset general */
+/* === RESET === */
 * {
   margin: 0;
   padding: 0;
@@ -12,14 +12,14 @@ body {
   line-height: 1.4;
 }
 
-/* Contenedor principal */
+/* === CONTENIDO PRINCIPAL === */
 .app {
   padding: 1rem;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* Barra superior (buscador + avatar) */
+/* === TOP BAR === */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -53,7 +53,7 @@ body {
   border-radius: 50%;
 }
 
-/* Sección con carrusel */
+/* === SECCIONES === */
 .section {
   margin-bottom: 2rem;
 }
@@ -74,7 +74,7 @@ body {
   font-size: 1.5rem;
 }
 
-/* Carrusel horizontal */
+/* === CARRUSEL === */
 .carousel {
   display: flex;
   overflow-x: auto;
@@ -87,7 +87,6 @@ body {
   display: none;
 }
 
-/* Tarjetas de contenido */
 .card {
   flex: 0 0 auto;
   width: 45%;
@@ -121,35 +120,157 @@ body {
   color: #ccc;
 }
 
-/* Responsivo: Ajustes por pantalla */
-@media (min-width: 480px) {
-  .card {
-    width: 40%;
-  }
+/* === NAVEGACIÓN === */
+.navigation {
+  background-color: #1e1e2e;
+  z-index: 1000;
 }
 
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* BOTONES */
+.navigation a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #bbb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.navigation a img {
+  width: 24px;
+  height: 24px;
+}
+
+.navigation a .text {
+  font-size: 0.7rem;
+  margin-top: 0.2rem;
+}
+
+/* ACTIVO */
+.navigation .active a {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+/* === HOVER === */
+.navigation a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+/* === ESCRITORIO: SIDEBAR IZQUIERDO === */
 @media (min-width: 768px) {
-  .search {
-    max-width: 400px;
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    border-right: 1px solid #333;
+  }
+
+  .navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navigation li {
+    width: 70%;
+  }
+
+  .navigation a {
+    width: 100%;
+    height: 64px;
+  }
+
+  .app {
+    margin-left: 90px;
   }
 
   .card {
     width: 30%;
     max-width: 180px;
   }
-
-  .section-header h2 {
-    font-size: 1.25rem;
-  }
 }
 
-@media (min-width: 1024px) {
-  .card {
-    width: 20%;
-    max-width: 200px;
+/* === MÓVIL: BOTTOM NAV === */
+@media (max-width: 767px) {
+  .navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #1e1e2e;
+    border-top: 1px solid #333;
+    z-index: 1000;
   }
 
-  .section-header h2 {
-    font-size: 1.3rem;
+  .navigation ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+  }
+
+  .navigation li {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+  }
+
+  .navigation a {
+    height: 100%;
+    width: 100%;
+    padding: 4px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #bbb;
+    font-size: 0.7rem;
+    overflow: hidden;
+  }
+
+  .navigation a img {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 2px;
+  }
+
+  .navigation .text {
+    display: block;
+    font-size: 0.68rem;
+  }
+
+  .navigation .active a {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+  }
+
+  .app {
+    padding-bottom: 80px; /* espacio para que el menú inferior no lo tape */
+  }
+
+  body {
+    margin-bottom: 0;
   }
 }
